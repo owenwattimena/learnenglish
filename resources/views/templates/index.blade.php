@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin Pro</title>
+        <title>{{ env('APP_NAME') }} - {{ env('APP_DESCRIPTION') }}</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="{{url('/')}}/css/styles.css" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="{{url('/')}}/assets/img/favicon.png" />
@@ -22,7 +22,7 @@
             <!-- * * Tip * * You can use text or an image for your navbar brand.-->
             <!-- * * * * * * When using an image, we recommend the SVG format.-->
             <!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
-            <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="index.html"><i data-feather="book-open"></i> LEARN ENGLISH</a>
+            <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="index.html"><i data-feather="book-open"></i> {{ env('APP_NAME') }} </a>
             <!-- Navbar Search Input-->
             <!-- * * Note: * * Visible only on and above the lg breakpoint-->
             {{-- <form class="form-inline me-auto d-none d-lg-block me-3">
@@ -229,7 +229,7 @@
                 <footer class="footer-admin mt-auto footer-light">
                     <div class="container-xl px-4">
                         <div class="row">
-                            <div class="col-md-6 small">Copyright &copy; Your Website 2021</div>
+                            <div class="col-md-6 small">Copyright &copy; Your Website {{ date('Y') }}</div>
                             <div class="col-md-6 text-md-end small">
                                 <a href="#!">Privacy Policy</a>
                                 &middot;
