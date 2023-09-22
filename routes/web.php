@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\PeriodController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:admin')->group(function () {
     Route::get('/', function () {
-        return view('templates.index');
+        return view('dashboard.index');
+    });
+
+    Route::prefix('period')->group(function(){
+        Route::get('/', [PeriodController::class, 'index'])->name('period');
+        Route::post('/', [PeriodController::class, 'create'])->name('period.create');
+        Route::post('/{id}/change', [PeriodController::class, 'changeStatus'])->name('period.change');
+        Route::put('/{id}', [PeriodController::class, 'update'])->name('period.udpate');
+        Route::delete('/{id}', [PeriodController::class, 'delete'])->name('period.delete');
     });
 });
 
