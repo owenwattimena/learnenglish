@@ -29,24 +29,25 @@
                                     <hr class="my-0" />
                                     <div class="card-body p-5">
                                         <!-- Login form-->
-                                        <form>
+                                        <form action="{{route('auth.doLogin')}}" method="POST">
+                                            @csrf
                                             <!-- Form Group (email address)-->
                                             <div class="mb-3">
                                                 <label class="text-gray-600 small" for="inputUsername">Username</label>
-                                                <input class="form-control form-control-solid" type="text" placeholder="Enter Username" aria-describedby="inputUsername" />
+                                                <input class="form-control form-control-solid" type="text" placeholder="Enter Username" name="username" aria-describedby="inputUsername" />
                                             </div>
                                             <!-- Form Group (password)-->
                                             <div class="mb-3">
                                                 <label class="text-gray-600 small" for="inputPassword">Password</label>
-                                                <input class="form-control form-control-solid" type="password" placeholder="Enter Password" aria-label="Password" aria-describedby="inputPassword" />
+                                                <input class="form-control form-control-solid" type="password" placeholder="Enter Password" name="password" aria-label="Password" aria-describedby="inputPassword" />
                                             </div>
                                             <!-- Form Group (login box)-->
                                             <div class="d-flex align-items-center justify-content-between mb-0">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" id="checkRememberPassword" type="checkbox" value="" />
+                                                    <input class="form-check-input" id="checkRememberPassword" type="checkbox" name="remember" value="" />
                                                     <label class="form-check-label" for="checkRememberPassword">Remember password</label>
                                                 </div>
-                                                <a class="btn btn-primary" href="dashboard-1.html">Login</a>
+                                                <button class="btn btn-primary" type="submit">Login</button>
                                             </div>
                                         </form>
                                     </div>

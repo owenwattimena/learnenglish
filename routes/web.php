@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('templates.index');
 });
-Route::get('/auth/login', function () {
-    return view('auth.login');
+Route::prefix('auth')->group(function(){
+    Route::get('login', [AuthController::class, 'login'])->name('auth.login');
+    Route::post('login', [AuthController::class, 'doLogin'])->name('auth.doLogin');
 });
