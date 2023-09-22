@@ -14,10 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('templates.index');
+Route::middleware('auth:admin')->group(function () {
+    Route::get('/', function () {
+        return view('templates.index');
+    });
 });
-Route::prefix('auth')->group(function(){
-    Route::get('login', [AuthController::class, 'login'])->name('auth.login');
-    Route::post('login', [AuthController::class, 'doLogin'])->name('auth.doLogin');
+
+Route::middleware('guest')->group(function () {
+    Route::prefix('auth')->group(function () {
+        Route::get('login', [AuthController::class, 'login'])->name('auth.login');
+        Route::post('login', [AuthController::class, 'doLogin'])->name('auth.doLogin');
+    });
 });
