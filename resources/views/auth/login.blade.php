@@ -28,6 +28,12 @@
                                     </div>
                                     <hr class="my-0" />
                                     <div class="card-body p-5">
+                                        @if(session('alert'))
+                                        <div class="alert alert-{{ session('alert')['type'] }} bg-{{ session('alert')['type'] }} alert-dismissible fade show" role="alert">
+                                            <div class="text-white">{{ session('alert')['message'] }}</div>
+                                            <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                        @endif
                                         <!-- Login form-->
                                         <form action="{{route('auth.doLogin')}}" method="POST">
                                             @csrf

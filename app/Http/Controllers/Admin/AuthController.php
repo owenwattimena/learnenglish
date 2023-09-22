@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\AlertFormatter;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +31,6 @@ class AuthController extends Controller
         {
             return redirect()->intended('/');
         }
-        return redirect()->back();
+        return redirect()->back()->with(AlertFormatter::danger('Username or Password invalid'));
     }
 }
