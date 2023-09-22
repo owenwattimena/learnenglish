@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Login - SB Admin Pro</title>
+        <title>{{env('APP_NAME')}} - Login</title>
         <link href="{{url('/')}}/css/styles.css" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="{{url('/')}}/assets/img/favicon.png" />
         <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
@@ -23,12 +23,8 @@
                                 <!-- Social login form-->
                                 <div class="card my-5">
                                     <div class="card-body p-5 text-center">
-                                        <div class="h3 fw-light mb-3">Sign In</div>
-                                        <!-- Social login links-->
-                                        <a class="btn btn-icon btn-facebook mx-1" href="#!"><i class="fab fa-facebook-f fa-fw fa-sm"></i></a>
-                                        <a class="btn btn-icon btn-github mx-1" href="#!"><i class="fab fa-github fa-fw fa-sm"></i></a>
-                                        <a class="btn btn-icon btn-google mx-1" href="#!"><i class="fab fa-google fa-fw fa-sm"></i></a>
-                                        <a class="btn btn-icon btn-twitter mx-1" href="#!"><i class="fab fa-twitter fa-fw fa-sm text-white"></i></a>
+                                        <h1>{{ env('APP_NAME') }}</h1>
+                                        <p class="m-0">{{ env('APP_DESCRIPTION') }}</p>
                                     </div>
                                     <hr class="my-0" />
                                     <div class="card-body p-5">
@@ -36,16 +32,14 @@
                                         <form>
                                             <!-- Form Group (email address)-->
                                             <div class="mb-3">
-                                                <label class="text-gray-600 small" for="emailExample">Email address</label>
-                                                <input class="form-control form-control-solid" type="text" placeholder="" aria-label="Email Address" aria-describedby="emailExample" />
+                                                <label class="text-gray-600 small" for="inputUsername">Username</label>
+                                                <input class="form-control form-control-solid" type="text" placeholder="Enter Username" aria-describedby="inputUsername" />
                                             </div>
                                             <!-- Form Group (password)-->
                                             <div class="mb-3">
-                                                <label class="text-gray-600 small" for="passwordExample">Password</label>
-                                                <input class="form-control form-control-solid" type="password" placeholder="" aria-label="Password" aria-describedby="passwordExample" />
+                                                <label class="text-gray-600 small" for="inputPassword">Password</label>
+                                                <input class="form-control form-control-solid" type="password" placeholder="Enter Password" aria-label="Password" aria-describedby="inputPassword" />
                                             </div>
-                                            <!-- Form Group (forgot password link)-->
-                                            <div class="mb-3"><a class="small" href="auth-password-social.html">Forgot your password?</a></div>
                                             <!-- Form Group (login box)-->
                                             <div class="d-flex align-items-center justify-content-between mb-0">
                                                 <div class="form-check">
@@ -57,12 +51,6 @@
                                         </form>
                                     </div>
                                     <hr class="my-0" />
-                                    <div class="card-body px-5 py-4">
-                                        <div class="small text-center">
-                                            New user?
-                                            <a href="auth-register-social.html">Create an account!</a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +61,7 @@
                 <footer class="footer-admin mt-auto footer-dark">
                     <div class="container-xl px-4">
                         <div class="row">
-                            <div class="col-md-6 small">Copyright &copy; Your Website 2021</div>
+                            <div class="col-md-6 small">Copyright &copy; Your Website {{date('Y')}}</div>
                             <div class="col-md-6 text-md-end small">
                                 <a href="#!">Privacy Policy</a>
                                 &middot;
