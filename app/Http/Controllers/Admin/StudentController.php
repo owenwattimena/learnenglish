@@ -12,7 +12,8 @@ class StudentController extends Controller
 {
     public function index()
     {
-        $data['user'] = User::all();
+        $period = Period::where('status', true)->first();
+        $data['user'] = User::where('period_id', $period->id ?? 0)->get();
         return view('student.index', $data);
     }
 
