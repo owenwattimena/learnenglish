@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\LessonController;
 use App\Http\Controllers\Admin\PeriodController;
 use App\Http\Controllers\Admin\StudentController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,14 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('/', [StudentController::class, 'create'])->name('student.create');
         Route::put('/{id}', [StudentController::class, 'update'])->name('student.update');
         Route::delete('/{id}', [StudentController::class, 'delete'])->name('student.delete');
+    });
+    Route::prefix('lesson')->group(function(){
+        Route::get('/', [LessonController::class, 'index'])->name('lesson');
+        Route::get('/add', [LessonController::class, 'add'])->name('lesson.add');
+        Route::post('/add', [LessonController::class, 'create'])->name('lesson.create');
+        Route::get('/{id}', [LessonController::class, 'edit'])->name('lesson.edit');
+        Route::put('/{id}', [LessonController::class, 'update'])->name('lesson.update');
+        Route::delete('/{id}', [LessonController::class, 'delete'])->name('lesson.delete');
     });
 });
 

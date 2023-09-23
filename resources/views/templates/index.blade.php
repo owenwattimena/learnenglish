@@ -12,6 +12,7 @@
     <link rel="icon" type="image/x-icon" href="{{url('/')}}/assets/img/favicon.png" />
     <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
+    @yield('head')
 </head>
 <body class="nav-fixed">
     <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
@@ -142,7 +143,7 @@
                             Students
                         </a>
                         <!-- Sidenav Link (Tables)-->
-                        <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="{{ route('lesson') }}">
                             <div class="nav-link-icon"><i data-feather="book-open"></i></div>
                             Lessons
                         </a>
@@ -188,5 +189,6 @@
     <script src="{{url('/')}}/assets/demo/chart-pie-demo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="{{url('/')}}/js/datatables/datatables-simple-demo.js"></script>
+    @yield('script')
 </body>
 </html>
