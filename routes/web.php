@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\PeriodController;
+use App\Http\Controllers\Admin\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,12 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('/{id}/change', [PeriodController::class, 'changeStatus'])->name('period.change');
         Route::put('/{id}', [PeriodController::class, 'update'])->name('period.udpate');
         Route::delete('/{id}', [PeriodController::class, 'delete'])->name('period.delete');
+    });
+    Route::prefix('student')->group(function(){
+        Route::get('/', [StudentController::class, 'index'])->name('student');
+        Route::post('/', [StudentController::class, 'create'])->name('student.create');
+        Route::put('/{id}', [StudentController::class, 'update'])->name('student.update');
+        Route::delete('/{id}', [StudentController::class, 'delete'])->name('student.delete');
     });
 });
 

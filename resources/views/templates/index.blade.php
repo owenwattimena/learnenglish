@@ -137,7 +137,7 @@
                             Periode
                         </a>
                         <!-- Sidenav Link (Tables)-->
-                        <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="{{ route('student') }}">
                             <div class="nav-link-icon"><i data-feather="users"></i></div>
                             Students
                         </a>
