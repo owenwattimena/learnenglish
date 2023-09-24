@@ -41,6 +41,7 @@
                         <td>{{ $item->title }}</td>
                         <td>{{ $item->description }}</td>
                         <td>
+                            <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="{{ route('lesson.edit', ["id" => $item->id , "type" => "show"]) }}" ><i data-feather="eye"></i></a>
                             <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" href="{{ route('lesson.edit', $item->id) }}" ><i data-feather="edit"></i></a>
                             <form action="{{ route('lesson.delete', $item->id) }}" method="post" class="d-inline">
                                 @csrf

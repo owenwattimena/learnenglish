@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\LessonController;
 use App\Http\Controllers\Admin\PeriodController;
+use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\QuizController;
 use App\Http\Controllers\Admin\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +44,16 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/{id}', [LessonController::class, 'edit'])->name('lesson.edit');
         Route::put('/{id}', [LessonController::class, 'update'])->name('lesson.update');
         Route::delete('/{id}', [LessonController::class, 'delete'])->name('lesson.delete');
+
+        // Quiz
+        Route::get('/{id}/quiz', [QuizController::class, 'index'])->name('quiz');
+        Route::post('/{id}/quiz', [QuizController::class, 'create'])->name('quiz.create');
+        Route::delete('/{id}/quiz/{quizId}', [QuizController::class, 'delete'])->name('quiz.delete');
+        //Question
+        Route::get('/{id}/quiz/{quizId}', [QuestionController::class, 'index'])->name('question');
+        Route::post('/{id}/quiz/{quizId}', [QuestionController::class, 'create'])->name('question.create');
+        Route::delete('/{id}/quiz/{quizId}/delete/{questionId}', [QuestionController::class, 'delete'])->name('question.delete');
+
     });
 });
 
