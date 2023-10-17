@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\LessonController;
 use App\Http\Controllers\API\QuizController;
@@ -23,9 +24,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function () {
     Route::post('login', [AuthController::class, 'login']);
-    Route::middleware(['isPeriod', 'auth:sanctum'])->group(function(){
+    Route::middleware(['checkApiToken', 'isPeriod', 'auth:sanctum'])->group(function(){
         Route::get('lessons', [LessonController::class, 'all']);
         Route::get('lesson/{id}', [LessonController::class, 'get']);
         Route::get('quizes', [QuizController::class, 'all']);
+        Route::get('quiz/{id}', [QuizController::class, 'get']);
+        Route::get('quiz/{id}/question/{idQuestion}', [QuizController::class, 'getQuestionOption']);
+        Route::get('quiz/{id}/question/{idQuestion}/essay-answer', [QuizController::class, 'getEssayQuestionAnswer']);
+
+        Route::post('quiz/{id}/answer', [QuizController::class, 'saveAnswer']);
+
+        Route::post('quiz/{id}/question-answer', [QuizController::class, 'saveQuestionAnswer']);
+
+        Route::post('quiz/{id}/finish', [QuizController::class, 'finish']);
+        Route::get('quiz/{id}/result', [QuizController::class, 'result']);
     });
 });

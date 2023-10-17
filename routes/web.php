@@ -51,8 +51,12 @@ Route::middleware('auth:admin')->group(function () {
         Route::delete('/{id}/quiz/{quizId}', [QuizController::class, 'delete'])->name('quiz.delete');
         //Question
         Route::get('/{id}/quiz/{quizId}', [QuestionController::class, 'index'])->name('question');
+        Route::get('/{id}/quiz/{quizId}/result', [QuestionController::class, 'result'])->name('question.result');
         Route::post('/{id}/quiz/{quizId}', [QuestionController::class, 'create'])->name('question.create');
         Route::delete('/{id}/quiz/{quizId}/delete/{questionId}', [QuestionController::class, 'delete'])->name('question.delete');
+        // Result
+        Route::get('/{id}/quiz/{quizId}/result/{userAnswer}', [QuestionController::class, 'resultDetail'])->name('question.result.detail');
+        Route::post('/{id}/quiz/{quizId}/result/{userAnswer}', [QuestionController::class, 'resultEssayEvaluate'])->name('question.result.detail.evaluate');
 
     });
 });

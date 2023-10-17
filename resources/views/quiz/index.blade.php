@@ -80,7 +80,7 @@
                         <td>{{ $item->type }}</td>
                         <td>
                             <a class="btn btn-xs btn-transparent-dark me-2" href="{{ route('question', ["id" => $lesson->id , "quizId" => $item->id]) }}" >Questions</a>
-                            <a class="btn btn-xs btn-transparent-dark me-2" href="{{ route('lesson.edit', $item->id) }}" >Result</a>
+                            <a class="btn btn-xs btn-transparent-dark me-2" href="{{ route('question.result', ["id" => $lesson->id , "quizId" => $item->id]) }}" >Result</a>
                             <form action="{{ route('quiz.delete', [ $lesson->id, $item->id ]) }}" method="post" class="d-inline">
                                 @csrf
                                 @method('delete')
@@ -88,9 +88,7 @@
                             </form>
                         </td>
                     </tr>
-
                     @endforeach
-
                 </tbody>
             </table>
         </div>
